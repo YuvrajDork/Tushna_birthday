@@ -10,14 +10,15 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #ffe6f0, #fff);
+      background: linear-gradient(135deg, #2c3e50, #34495e); /* Serious color tone */
       font-family: "Segoe UI", Tahoma, sans-serif;
       overflow: hidden;
+      color: #ecf0f1;
     }.card {
-  background: white;
+  background: #1c2833; /* Darker card tone */
   padding: 40px 30px;
   border-radius: 16px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
   text-align: center;
   max-width: 400px;
   width: 90%;
@@ -28,17 +29,21 @@
 h1 {
   font-size: 22px;
   margin-bottom: 10px;
+  color: #ecf0f1;
 }
 
 p {
   font-size: 16px;
   margin-bottom: 30px;
-  color: #444;
+  color: #bdc3c7;
 }
 
 .buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
   position: relative;
-  height: 120px;
+  height: 60px;
 }
 
 button {
@@ -48,22 +53,23 @@ button {
   border: none;
   cursor: pointer;
   transition: all 0.2s ease;
+  font-weight: bold;
 }
 
 #yesBtn {
-  background: #ff4d88;
+  background: #27ae60; /* Green for positive */
   color: white;
-  margin-right: 10px;
 }
 
 #noBtn {
-  background: #eee;
-  color: #555;
-  position: absolute;
+  background: #c0392b; /* Prominent red */
+  color: white;
+  position: absolute; /* moves dynamically */
 }
 
 .celebrate {
   display: none;
+  color: #ecf0f1;
 }
 
 .heart {
@@ -113,13 +119,18 @@ button {
     let noScale = 1;
     let yesScale = 1;
 
+    function initializeButtons() {
+      noBtn.style.position = 'relative';
+      noBtn.style.left = '0';
+      noBtn.style.top = '0';
+    }
+
     function moveNoButton() {
+      noBtn.style.position = 'absolute';
       const maxX = buttons.clientWidth - noBtn.offsetWidth;
       const maxY = buttons.clientHeight - noBtn.offsetHeight;
-
       const randomX = Math.random() * maxX;
       const randomY = Math.random() * maxY;
-
       noBtn.style.left = randomX + "px";
       noBtn.style.top = randomY + "px";
 
@@ -153,6 +164,6 @@ button {
       }, 300);
     }
 
-    moveNoButton();
+    initializeButtons();
   </script></body>
 </html>

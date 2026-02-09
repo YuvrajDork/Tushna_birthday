@@ -98,9 +98,9 @@ button {
     <div class="buttons" id="buttons">
       <button id="yesBtn">YES</button>
       <button id="noBtn">NO</button>
-    </div><!-- Happy Birthday Instrumental -->
+    </div><!-- Happy Birthday Instrumental (MP3 for compatibility) -->
 <audio id="music" loop>
-  <source src="https://actions.google.com/sounds/v1/celebration/happy_birthday.ogg" type="audio/ogg">
+  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_7c7b5c4b1a.mp3" type="audio/mpeg">
 </audio>
 
 <div class="celebrate" id="celebrate">
@@ -148,7 +148,7 @@ button {
     yesBtn.addEventListener("click", () => {
       buttons.style.display = "none";
       celebrate.style.display = "block";
-      music.play(); // play happy birthday music
+      music.play(); // play Happy Birthday music
       startHearts();
     });
 

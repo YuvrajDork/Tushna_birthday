@@ -94,19 +94,19 @@ button {
     <p>
       You make my days better just by being you.<br />
       Would you like to walk this year of life with me?
-    </p><div class="buttons" id="buttons">
-  <button id="yesBtn">YES</button>
-  <button id="noBtn">NO</button>
-</div>
-
+    </p>
+    <div class="buttons" id="buttons">
+      <button id="yesBtn">YES</button>
+      <button id="noBtn">NO</button>
+    </div><!-- Happy Birthday Instrumental -->
 <audio id="music" loop>
-  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_7c7b5c4b1a.mp3" type="audio/mpeg">
+  <source src="https://actions.google.com/sounds/v1/celebration/happy_birthday.ogg" type="audio/ogg">
 </audio>
 
 <div class="celebrate" id="celebrate">
   <h2>Yay! 🎉❤️</h2>
   <p>Best decision ever. Here's to us ✨</p>
-  <p style="margin-top:10px;font-weight:500;">Thankyou for existing in my life all these years. <br>Now you’re stuck with me for the atleast till next year 😌</p>
+  <p style="margin-top:10px;font-weight:500;">Thank you for existing in my life all these years. <br>Now you’re stuck with me at least till next year 😌</p>
 </div>
 
   </div>  <script>
@@ -148,7 +148,7 @@ button {
     yesBtn.addEventListener("click", () => {
       buttons.style.display = "none";
       celebrate.style.display = "block";
-      music.play();
+      music.play(); // play happy birthday music
       startHearts();
     });
 
@@ -167,7 +167,3 @@ button {
     initializeButtons();
   </script></body>
 </html>
-
-
-
-

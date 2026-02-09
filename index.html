@@ -1,201 +1,150 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-  <title>For Tushna ❤️</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For My Lady ❤️</title>
   <style>
-    * {
-      box-sizing: border-box;
-      -webkit-tap-highlight-color: transparent;
-    }
-
     body {
       margin: 0;
-      min-height: 100vh;
+      height: 100vh;
       display: flex;
-      align-items: center;
       justify-content: center;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      align-items: center;
       background: linear-gradient(135deg, #ffe6f0, #fff);
+      font-family: "Segoe UI", Tahoma, sans-serif;
       overflow: hidden;
-    }
+    }.card {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  position: relative;
+  z-index: 2;
+}
 
-    /* Background slideshow */
-    .bg-slideshow {
-      position: fixed;
-      inset: 0;
-      background-size: cover;
-      background-position: center;
-      filter: blur(10px) brightness(0.7);
-      opacity: 0;
-      transition: opacity 1.5s ease;
-      z-index: 0;
-    }
+h1 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
 
-    .card {
-      position: relative;
-      z-index: 2;
-      background: white;
-      width: 92%;
-      max-width: 380px;
-      padding: 28px 22px;
-      border-radius: 18px;
-      text-align: center;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    }
+p {
+  font-size: 16px;
+  margin-bottom: 30px;
+  color: #444;
+}
 
-    h1 {
-      font-size: 20px;
-      margin-bottom: 12px;
-    }
+.buttons {
+  position: relative;
+  height: 120px;
+}
 
-    p {
-      font-size: 15px;
-      color: #444;
-      margin-bottom: 26px;
-      line-height: 1.5;
-    }
+button {
+  padding: 12px 28px;
+  font-size: 16px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
 
-    .buttons {
-      position: relative;
-      height: 120px;
-    }
+#yesBtn {
+  background: #ff4d88;
+  color: white;
+  margin-right: 10px;
+}
 
-    button {
-      padding: 12px 26px;
-      font-size: 15px;
-      border-radius: 30px;
-      border: none;
-      cursor: pointer;
-      transition: transform 0.2s ease;
-      touch-action: manipulation;
-    }
+#noBtn {
+  background: #eee;
+  color: #555;
+  position: absolute;
+}
 
-    #yesBtn {
-      background: #ff4d88;
-      color: white;
-    }
+.celebrate {
+  display: none;
+}
 
-    #noBtn {
-      background: #eee;
-      color: #555;
-      position: absolute;
-    }
+.heart {
+  position: fixed;
+  bottom: -20px;
+  font-size: 20px;
+  animation: floatUp 4s linear forwards;
+  opacity: 0.8;
+  z-index: 1;
+}
 
-    .celebrate {
-      display: none;
-    }
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(1); opacity: 0.9; }
+  100% { transform: translateY(-110vh) scale(1.5); opacity: 0; }
+}
 
-    .celebrate img {
-      width: 100%;
-      border-radius: 14px;
-      margin-top: 16px;
-    }
-
-    /* Floating hearts */
-    .heart {
-      position: fixed;
-      bottom: -20px;
-      animation: floatUp 4s linear forwards;
-      opacity: 0.85;
-      z-index: 1;
-    }
-
-    @keyframes floatUp {
-      0% {
-        transform: translateY(0) scale(1);
-        opacity: 0.9;
-      }
-
-      100% {
-        transform: translateY(-110vh) scale(1.5);
-        opacity: 0;
-      }
-    }
   </style>
 </head>
-
 <body>
-
-  <div class="bg-slideshow" id="bgSlideshow"></div>
-
-  <audio id="music" loop>
-    <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_7c7b5c4b1a.mp3" type="audio/mpeg">
-  </audio>
-
-  <div class="card">
+  <div class="card" id="card">
     <h1>Happy 25th, Tushna ❤️</h1>
     <p>
-      You make my days better just by being you.<br>
+      You make my days better just by being you.<br />
       Would you like to walk this year of life with me?
-    </p>
+    </p><div class="buttons" id="buttons">
+  <button id="yesBtn">YES</button>
+  <button id="noBtn">NO</button>
+</div>
 
-    <div class="buttons" id="buttons">
-      <button id="yesBtn">YES</button>
-      <button id="noBtn">NO</button>
-    </div>
+<audio id="music" loop>
+  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_7c7b5c4b1a.mp3" type="audio/mpeg">
+</audio>
 
-    <div class="celebrate" id="celebrate">
-      <h2>Yay! 🎉❤️</h2>
-      <p>Best decision ever. Here's to us ✨</p>
-      <p style="font-weight:500;">Now you’re stuck with me for the rest of the year 😌</p>
-      <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" />
-    </div>
-  </div>
+<div class="celebrate" id="celebrate">
+  <h2>Yay! 🎉❤️</h2>
+  <p>Best decision ever. Here's to us ✨</p>
+  <p style="margin-top:10px;font-weight:500;">Now you’re stuck with me for the rest of the year 😌</p>
+</div>
 
-  <script>
+  </div>  <script>
     const noBtn = document.getElementById("noBtn");
     const yesBtn = document.getElementById("yesBtn");
     const buttons = document.getElementById("buttons");
     const celebrate = document.getElementById("celebrate");
     const music = document.getElementById("music");
-    const bg = document.getElementById("bgSlideshow");
 
     let noScale = 1;
     let yesScale = 1;
 
-    function moveNo() {
+    function moveNoButton() {
       const maxX = buttons.clientWidth - noBtn.offsetWidth;
       const maxY = buttons.clientHeight - noBtn.offsetHeight;
 
-      noBtn.style.left = Math.random() * maxX + "px";
-      noBtn.style.top = Math.random() * maxY + "px";
+      const randomX = Math.random() * maxX;
+      const randomY = Math.random() * maxY;
+
+      noBtn.style.left = randomX + "px";
+      noBtn.style.top = randomY + "px";
 
       noScale = Math.max(0.4, noScale - 0.1);
-      yesScale += 0.1;
-
       noBtn.style.transform = `scale(${noScale})`;
+
+      yesScale += 0.1;
       yesBtn.style.transform = `scale(${yesScale})`;
     }
 
-    noBtn.addEventListener("click", moveNo);
-    noBtn.addEventListener("touchstart", moveNo);
+    noBtn.addEventListener("mouseenter", moveNoButton);
+    noBtn.addEventListener("click", moveNoButton);
+    noBtn.addEventListener("touchstart", moveNoButton);
 
     yesBtn.addEventListener("click", () => {
       buttons.style.display = "none";
       celebrate.style.display = "block";
       music.play();
-      startCelebration();
+      startHearts();
     });
 
-    function startCelebration() {
-      const images = ["img1.jpg", "img2.jpg"];
-      let index = 0;
-
-      bg.style.opacity = "1";
-      bg.style.backgroundImage = `url(${images[0]})`;
-
-      setInterval(() => {
-        index = (index + 1) % images.length;
-        bg.style.backgroundImage = `url(${images[index]})`;
-      }, 4000);
-
+    function startHearts() {
       setInterval(() => {
         const heart = document.createElement("div");
-        heart.className = "heart";
+        heart.classList.add("heart");
         heart.innerText = "❤️";
         heart.style.left = Math.random() * 100 + "vw";
         heart.style.fontSize = 16 + Math.random() * 20 + "px";
@@ -204,9 +153,6 @@
       }, 300);
     }
 
-    moveNo();
-  </script>
-
-</body>
-
+    moveNoButton();
+  </script></body>
 </html>
